@@ -1,0 +1,43 @@
+
+> bufferutil@4.0.6 install C:\Users\hp\Desktop\dummyGraph\node_modules\bufferutil
+> node-gyp-build
+
+
+> utf-8-validate@5.0.9 install C:\Users\hp\Desktop\dummyGraph\node_modules\utf-8-validate
+> node-gyp-build
+
+
+> es5-ext@0.10.62 postinstall C:\Users\hp\Desktop\dummyGraph\node_modules\es5-ext
+>  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+
+
+> web3-bzz@1.7.4 postinstall C:\Users\hp\Desktop\dummyGraph\node_modules\web3-bzz
+> echo "WARNING: the web3-bzz api will be deprecated in the next version"
+
+"WARNING: the web3-bzz api will be deprecated in the next version"
+
+> web3-shh@1.7.4 postinstall C:\Users\hp\Desktop\dummyGraph\node_modules\web3-shh
+> echo "WARNING: the web3-shh api will be deprecated in the next version"
+
+"WARNING: the web3-shh api will be deprecated in the next version"
+
+> web3@1.7.4 postinstall C:\Users\hp\Desktop\dummyGraph\node_modules\web3
+> echo "WARNING: the web3-shh and web3-bzz api will be deprecated in the next version"
+
+"WARNING: the web3-shh and web3-bzz api will be deprecated in the next version"
++ @nomiclabs/hardhat-etherscan@3.0.0
++ @typechain/ethers-v5@10.1.0
++ @typechain/hardhat@6.1.2
++ hardhat-gas-reporter@1.0.8
++ solidity-coverage@0.7.21
++ typechain@8.1.0
++ ts-node@10.9.1
++ @types/mocha@9.1.0
++ typescript@4.8.2
+added 591 packages from 511 contributors and audited 920 packages in 85.908s
+
+106 packages are looking for funding
+  run `npm fund` for details
+
+found 4 moderate severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
