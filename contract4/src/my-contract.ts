@@ -10,20 +10,19 @@ import { NewAmount, NewState, NewTimed } from "../generated/schema";
 export function handleAmount(event: Amount): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
-  let entity = NewAmount.load(event.transaction.from.toHex());
+  let entity = NewAmount.load(event.transaction.hash.toHex());
 
   // Entities only exist after they have been saved to the store;
   // `null` checks allow to create entities on demand
   if (entity == null) {
-    entity = new NewAmount(event.transaction.from.toHex());
-
+    entity = new NewAmount(event.transaction.hash.toHex());
+    entity.id = event.transaction.hash.toHex();
     // Entity fields can be set using simple assignments
   }
+  entity.amount = event.params.amount;
 
   // BigInt and BigDecimal math are supported
   // Entity fields can be set based on event parameters
-  entity.amount = event.params.amount;
-
   // Entities can be written to the store with `.save()`
   entity.save();
 
@@ -46,33 +45,32 @@ export function handleAmount(event: Amount): void {
 }
 
 export function handleState(event: State): void {
-  let entity = NewState.load(event.transaction.from.toHex());
+  let entity = NewState.load(event.transaction.hash.toHex());
 
   // Entities only exist after they have been saved to the store;
   // `null` checks allow to create entities on demand
   if (entity == null) {
-    entity = new NewState(event.transaction.from.toHex());
-
-    // Entity fields can be set using simple assignments
-  }
-
-  entity.stateStatus = event.params.stateStatus;
-  entity.name = event.params.name.toString();
-
+    entity = new NewState(event.transaction.hash.toHex());
+    entity.id = event.transaction.hash.toHex();
+     // Entity fields can be set using simple assignments
+    }
+    
+    entity.stateStatus = event.params.stateStatus;
+    entity.name = event.params.name.toString();
   entity.save();
 }
 
 export function handleTimed(event: Timed): void {
-  let entity = NewTimed.load(event.transaction.from.toHex());
+  let entity = NewTimed.load(event.transaction.hash.toHex());
 
   // Entities only exist after they have been saved to the store;
   // `null` checks allow to create entities on demand
   if (entity == null) {
-    entity = new NewTimed(event.transaction.from.toHex());
-
+    entity = new NewTimed(event.transaction.hash.toHex());
+    entity.id = event.transaction.hash.toHex();
     // Entity fields can be set using simple assignments
   }
-
+  
   entity.time = event.params.time;
 
   entity.save();
