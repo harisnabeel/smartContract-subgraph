@@ -1,0 +1,15 @@
+type NewAmount @entity {
+  id: ID!
+  amount: BigInt! # uint256
+}
+
+type NewState @entity {
+  id: ID!
+  stateStatus: BigInt! # uint256
+  name: String!
+}
+
+type NewTimed @entity {
+  id: ID!
+  time: BigInt! # uint256
+}

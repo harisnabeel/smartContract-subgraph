@@ -1,0 +1,30 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: MyContract
+    network: rinkeby
+    source:
+      address: "0xb78A5054F5f31157d0430b715AAe937996b3d48A"
+      abi: MyContract
+      startBlock: 11300000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Amount
+        - State
+        - Timed
+      abis:
+        - name: MyContract
+          file: ./abis/MyContract.json
+      eventHandlers:
+        - event: Amount(indexed uint256)
+          handler: handleAmount
+        - event: State(indexed uint256,indexed string)
+          handler: handleState
+        - event: Timed(indexed uint256)
+          handler: handleTimed
+      file: ./src/my-contract.ts
